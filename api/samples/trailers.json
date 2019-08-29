@@ -1,1 +1,11 @@
-{"trailers":[{"trailerId":"4a54e1d887da77c3ab345f7635ca9b59","filmId":"45e8f29f25fe31a59be88301baa5caa1","main":true,"previewImageUrl":"FALSE","streamUrl":"https://strm.yandex.ru/vh-ott-converted/ott-content/473886620-4a54e1d887da77c3ab345f7635ca9b59/master.m3u8"}]}
+{
+  "trailers": [
+    {
+      "trailerId": "4a54e1d887da77c3ab345f7635ca9b59",
+      "filmId": "45e8f29f25fe31a59be88301baa5caa1",
+      "main": true,
+      "previewImageUrl": "FALSE",
+      "streamUrl": "https://strm.yandex.ru/vh-ott-converted/ott-content/473886620-4a54e1d887da77c3ab345f7635ca9b59/master.m3u8"
+    }
+  ]
+}

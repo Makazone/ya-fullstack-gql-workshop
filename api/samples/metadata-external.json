@@ -1,1 +1,146 @@
-{"ratings":[{"type":"KINOPOISK","value":8.619000434875488,"votes":343781},{"type":"IMDB","value":8.899999618530273,"votes":1667010}],"credits":{"actors":[{"person":{"id":6479,"name":"Джон Траволта","imageUrl":"https://st.kp.yandex.net/images/actor_original/6479.jpg","gender":"MALE"},"roleDetails":"Vincent Vega"},{"person":{"id":7164,"name":"Сэмюэл Л. Джексон","imageUrl":"https://st.kp.yandex.net/images/actor_original/7164.jpg","gender":"MALE"},"roleDetails":"Jules Winnfield"},{"person":{"id":110,"name":"Брюс Уиллис","imageUrl":"https://st.kp.yandex.net/images/actor_original/110.jpg","gender":"MALE"},"roleDetails":"Butch Coolidge"},{"person":{"id":29595,"name":"Ума Турман","imageUrl":"https://st.kp.yandex.net/images/actor_original/29595.jpg","gender":"FEMALE"},"roleDetails":"Mia Wallace"},{"person":{"id":24355,"name":"Винг Реймз","imageUrl":"https://st.kp.yandex.net/images/actor_original/24355.jpg","gender":"MALE"},"roleDetails":"Marsellus Wallace"},{"person":{"id":2145,"name":"Тим Рот","imageUrl":"https://st.kp.yandex.net/images/actor_original/2145.jpg","gender":"MALE"},"roleDetails":"Pumpkin"},{"person":{"id":1600,"name":"Харви Кейтель","imageUrl":"https://st.kp.yandex.net/images/actor_original/1600.jpg","gender":"MALE"},"roleDetails":"The Wolf"},{"person":{"id":7640,"name":"Квентин Тарантино","imageUrl":"https://st.kp.yandex.net/images/actor_original/7640.jpg","gender":"MALE"},"roleDetails":"Jimmie"},{"person":{"id":25640,"name":"Питер Грин","imageUrl":"https://st.kp.yandex.net/images/actor_original/25640.jpg","gender":"MALE"},"roleDetails":"Zed"},{"person":{"id":29519,"name":"Аманда Пламмер","imageUrl":"https://st.kp.yandex.net/images/actor_original/29519.jpg","gender":"FEMALE"},"roleDetails":"Honey Bunny"}],"directors":[{"person":{"id":7640,"name":"Квентин Тарантино","imageUrl":"https://st.kp.yandex.net/images/actor_original/7640.jpg","gender":"MALE"}}]},"badges":[{"id":142,"imageUrl":"http://avatars.mds.yandex.net/get-tv-channel-logos/27485/2a0000016b703653fd6cd2cdbe7ea39894f8/orig"},{"id":24,"imageUrl":"http://avatars.mds.yandex.net/get-ott/224348/2a00000162913a8e88f2faee1d989a95aeb3/orig"},{"id":40,"imageUrl":"http://avatars.mds.yandex.net/get-ott/212840/2a00000162913a9cf616cfb95518e9d097dd/orig"}],"similarFilmIds":[522,526,394,378140,9691,586584,15641,276295,4917,86326,586397,1978,195434,402,84830,47015,572027,555,4250,4149]}
+{
+  "ratings": [
+    { "type": "KINOPOISK", "value": 8.619000434875488, "votes": 343781 },
+    { "type": "IMDB", "value": 8.899999618530273, "votes": 1667010 }
+  ],
+  "credits": {
+    "actors": [
+      {
+        "person": {
+          "id": 6479,
+          "name": "Джон Траволта",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/6479.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "Vincent Vega"
+      },
+      {
+        "person": {
+          "id": 7164,
+          "name": "Сэмюэл Л. Джексон",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/7164.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "Jules Winnfield"
+      },
+      {
+        "person": {
+          "id": 110,
+          "name": "Брюс Уиллис",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/110.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "Butch Coolidge"
+      },
+      {
+        "person": {
+          "id": 29595,
+          "name": "Ума Турман",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/29595.jpg",
+          "gender": "FEMALE"
+        },
+        "roleDetails": "Mia Wallace"
+      },
+      {
+        "person": {
+          "id": 24355,
+          "name": "Винг Реймз",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/24355.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "Marsellus Wallace"
+      },
+      {
+        "person": {
+          "id": 2145,
+          "name": "Тим Рот",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/2145.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "Pumpkin"
+      },
+      {
+        "person": {
+          "id": 1600,
+          "name": "Харви Кейтель",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/1600.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "The Wolf"
+      },
+      {
+        "person": {
+          "id": 7640,
+          "name": "Квентин Тарантино",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/7640.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "Jimmie"
+      },
+      {
+        "person": {
+          "id": 25640,
+          "name": "Питер Грин",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/25640.jpg",
+          "gender": "MALE"
+        },
+        "roleDetails": "Zed"
+      },
+      {
+        "person": {
+          "id": 29519,
+          "name": "Аманда Пламмер",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/29519.jpg",
+          "gender": "FEMALE"
+        },
+        "roleDetails": "Honey Bunny"
+      }
+    ],
+    "directors": [
+      {
+        "person": {
+          "id": 7640,
+          "name": "Квентин Тарантино",
+          "imageUrl": "https://st.kp.yandex.net/images/actor_original/7640.jpg",
+          "gender": "MALE"
+        }
+      }
+    ]
+  },
+  "badges": [
+    {
+      "id": 142,
+      "imageUrl": "http://avatars.mds.yandex.net/get-tv-channel-logos/27485/2a0000016b703653fd6cd2cdbe7ea39894f8/orig"
+    },
+    {
+      "id": 24,
+      "imageUrl": "http://avatars.mds.yandex.net/get-ott/224348/2a00000162913a8e88f2faee1d989a95aeb3/orig"
+    },
+    {
+      "id": 40,
+      "imageUrl": "http://avatars.mds.yandex.net/get-ott/212840/2a00000162913a9cf616cfb95518e9d097dd/orig"
+    }
+  ],
+  "similarFilmIds": [
+    522,
+    526,
+    394,
+    378140,
+    9691,
+    586584,
+    15641,
+    276295,
+    4917,
+    86326,
+    586397,
+    1978,
+    195434,
+    402,
+    84830,
+    47015,
+    572027,
+    555,
+    4250,
+    4149
+  ]
+}
