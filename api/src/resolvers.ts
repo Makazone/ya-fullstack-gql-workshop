@@ -52,7 +52,7 @@ export default {
     }
   },
   Movie: {
-    actors: async (
+    crew: async (
       parent: any,
       _args: any,
       _context: any,
@@ -61,22 +61,13 @@ export default {
       const { id } = parent;
       const cast = await getMovieCast(id);
       if (cast) {
-        return cast.actors;
+        const { actors, directors } = cast;
+        return {
+          actors: actors || [],
+          directors: directors || []
+        };
       }
-      return [];
-    },
-    directors: async (
-      parent: any,
-      _args: any,
-      _context: any,
-      _info: any
-    ): Promise<any> => {
-      const { id } = parent;
-      const cast = await getMovieCast(id);
-      if (cast) {
-        return cast.directors;
-      }
-      return [];
+      return null;
     },
     similarMovies: async (
       parent: any,

@@ -5,9 +5,13 @@ export default gql`
     id: ID!
     title: String!
     description: String
+    crew: Cast
+    similarMovies(limit: Int! = 1): [Movie!]!
+  }
+
+  type Cast {
     actors: [ActingRole!]!
     directors: [Person!]!
-    similarMovies(limit: Int! = 1): [Movie!]!
   }
 
   type ActingRole {
