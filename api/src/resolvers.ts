@@ -14,5 +14,24 @@ import { getCurrentUser } from "./kinopoisk/userApi";
 // info - advanced stuff, query AST
 
 export default {
-  // TODO
+  Query: {
+    movie: async (
+      _parent: any,
+      args: any,
+      _context: any,
+      _info: any
+    ): Promise<any> => {
+      const { id } = args;
+
+      const movie = await getMovieDetails(id);
+
+      if (movie) {
+        return {
+          ...movie
+        };
+      }
+
+      return null;
+    }
+  }
 };
