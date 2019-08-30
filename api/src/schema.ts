@@ -4,7 +4,22 @@ export default gql`
   type Movie {
     id: ID!
     title: String!
+    description: String
+    actors: [ActingRole!]!
+    directors: [Person!]!
     similarMovies(limit: Int! = 1): [Movie!]!
+  }
+
+  type ActingRole {
+    id: ID!
+    person: Person!
+    characterName: String!
+  }
+
+  type Person {
+    id: ID!
+    name: String!
+    imageUrl: String
   }
 
   type User {

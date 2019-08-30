@@ -33,7 +33,12 @@ export default {
 
       return null;
     },
-    viewer: async (): Promise<any> => {
+    viewer: async (
+      _parent: any,
+      args: any,
+      _context: any,
+      _info: any
+    ): Promise<any> => {
       // TODO: get cookie from headers and pass it
       // to api
       const currentUser = await getCurrentUser();
@@ -47,6 +52,32 @@ export default {
     }
   },
   Movie: {
+    actors: async (
+      parent: any,
+      _args: any,
+      _context: any,
+      _info: any
+    ): Promise<any> => {
+      const { id } = parent;
+      const cast = await getMovieCast(id);
+      if (cast) {
+        return cast.actors;
+      }
+      return [];
+    },
+    directors: async (
+      parent: any,
+      _args: any,
+      _context: any,
+      _info: any
+    ): Promise<any> => {
+      const { id } = parent;
+      const cast = await getMovieCast(id);
+      if (cast) {
+        return cast.directors;
+      }
+      return [];
+    },
     similarMovies: async (
       parent: any,
       args: any,
