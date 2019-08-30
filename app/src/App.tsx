@@ -47,7 +47,7 @@ const App: React.FC = () => {
     <div className="App">
       <Menu>
         <Menu.Item>
-          G-Movies
+         Ya-Movies
         </Menu.Item>
       </Menu>
       <Movie movie={movie} />
