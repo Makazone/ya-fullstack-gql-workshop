@@ -6,7 +6,23 @@ export default gql`
     title: String!
   }
 
+  type User {
+    id: ID!
+    image: String
+    subscription: UserSubscriptionEnum!
+  }
+
+  enum UserSubscriptionEnum {
+    YA_PLUS
+    NONE
+  }
+
+  type Viewer {
+    me: User!
+  }
+
   type Query {
     movie(id: ID!): Movie
+    viewer: Viewer
   }
 `;

@@ -32,6 +32,18 @@ export default {
       }
 
       return null;
+    },
+    viewer: async (): Promise<any> => {
+      // TODO: get cookie from headers and pass it
+      // to api
+      const currentUser = await getCurrentUser();
+      if (currentUser) {
+        const subscription = currentUser.hasPlus ? "YA_PLUS" : "NONE";
+        return {
+          me: { ...currentUser, subscription }
+        };
+      }
+      return null;
     }
   }
 };
