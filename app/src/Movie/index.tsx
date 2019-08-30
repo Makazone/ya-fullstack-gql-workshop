@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Divider, Image, Grid, Header } from 'semantic-ui-react'
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
+import { GetMovie, GetMovieVariables } from '../__generated__/GetMovie'
 
 type Props = {
     movieId: string
@@ -26,7 +27,7 @@ const Movie: React.FC<Props> = (props) => {
     const { movieId } = props
 
     const variables = { movieId }
-    const { loading, error, data } = useQuery(GET_MOVIE, { variables });
+    const { loading, error, data } = useQuery<GetMovie, GetMovieVariables>(GET_MOVIE, { variables });
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;

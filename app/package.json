@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gqltypes:apollo-schema": "apollo client:download-schema",
+    "gqltypes:apollo-generate": "apollo client:codegen --target=typescript --outputFlat src/__generated__"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "apollo": "^2.18.0"
   }
 }
