@@ -1,53 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { Divider, Image, Grid, Header } from 'semantic-ui-react'
-import staticMovie from '../static-data'
+import { gql } from 'apollo-boost';
+import { useQuery } from '@apollo/react-hooks';
 
 type Props = {
     movieId: string
 }
 
-interface Movie {
-    title: string
-    description: string
-    posterUrl: string
-    similarMovies: Movie[]
-}
+const GET_MOVIE = gql`
+    query GetMovie($movieId: ID!) {
+        movie(id: $movieId) {
+            title
+            description
+            posterUrl
+            similarMovies(limit: 3) {
+                title
+                description
+                posterUrl
+            } 
+        }
+    }
+`;
 
 const Movie: React.FC<Props> = (props) => {
     const { movieId } = props
 
-    const [movie, setMovie] = useState<Movie | null>(null)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
+    const variables = { movieId }
+    const { loading, error, data } = useQuery(GET_MOVIE, { variables });
 
-    useEffect(() => {
-        async function loadMovie() {
-            const query = `query { movie(id: "${movieId}") { title posterUrl description similarMovies { posterUrl } } }`
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+    if (!data || !data.movie) return <p>Where is data?</p>
 
-            setLoading(true)
-            const response = await fetch('http://localhost:4000/graphql', {
-                method: 'post',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query }),
-            })
-
-            setLoading(false)
-            if (response && response.status === 200) {
-                const { data: { movie } } = await response.json()
-                console.log(movie)
-                setMovie(movie)
-            } else {
-                setError("Error :(")
-            }
-        }
-
-        loadMovie()
-    }, [])
-
-    if (loading) { return <p>loading...</p> }
-    if (error || !movie) { return <p>Error :(</p> }
-
-    const { posterUrl, title, description, similarMovies } = movie
+    const { movie: { title, posterUrl, description, similarMovies } } = data
 
     return (
         <Grid>
