@@ -4,6 +4,7 @@ export default gql`
   type Movie {
     id: ID!
     title: String!
+    posterUrl: String
     description: String
     actors: [ActingRole!]!
     directors: [Person!]!

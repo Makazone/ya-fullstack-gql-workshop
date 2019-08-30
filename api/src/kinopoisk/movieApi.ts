@@ -3,6 +3,8 @@ import axios from "axios";
 export interface Movie {
   id: string;
   title: string;
+  posterUrl: string;
+  description: string;
 }
 
 export interface MovieRole {
@@ -25,11 +27,16 @@ interface KpMovieResponse {
   kpId: string;
   title: string;
   description: string;
+  posterUrl: string;
 }
 
 interface KpRecommendationsResponse {
   recommendations: [
-    { items: [{ kpId: string; title: string; filmId: string }] }
+    {
+      items: [
+        { kpId: string; title: string; filmId: string; posterUrl: string }
+      ];
+    }
   ];
 }
 
@@ -56,7 +63,9 @@ export const getMovieDetails = async (
     const movie = response.data;
     return {
       id: movieId,
-      title: movie.title
+      title: movie.title,
+      posterUrl: movie.posterUrl,
+      description: movie.description
     };
   }
 
@@ -77,7 +86,8 @@ export const getRecommendations = async (
 
     const movies: Movie[] = items.map(i => ({
       id: i.filmId,
-      title: i.title
+      title: i.title,
+      posterUrl: i.posterUrl
     }));
 
     return Promise.resolve(movies);

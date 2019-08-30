@@ -1,34 +1,56 @@
 import React from 'react'
 import { Divider, Image, Grid, Header } from 'semantic-ui-react'
-
-type Movie = {
-    title: string
-    description: string
-    coverImageUrl: string
-    suggestions?: Movie[]
-}
+import { gql } from 'apollo-boost';
+import { useQuery } from '@apollo/react-hooks';
 
 type Props = {
-    movie: Movie
+    movieId: string
 }
 
+const GET_MOVIE = gql`
+    query GetMovie($movieId: ID!) {
+        movie(id: $movieId) {
+            ...MovieDetails
+            similarMovies(limit: 3) {
+                ...MovieDetails
+            } 
+        }
+    }
+
+    fragment MovieDetails on Movie {
+        title
+        description
+        posterUrl
+    }
+`;
+
 const Movie: React.FC<Props> = (props) => {
-    const { movie } = props
+    const { movieId } = props
+
+    const { loading, error, data } = useQuery(GET_MOVIE, { variables: { movieId } });
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+
+    console.log(data)
+
+    const { movie: { title, posterUrl, description, similarMovies } } = data
+
     return (
         <Grid>
             <Grid.Row>
                 <Grid.Column width={8}>
-                    <Image centered size='medium' src={movie.coverImageUrl} />
+                    <Image centered size='medium' src={posterUrl} />
                 </Grid.Column>
                 <Grid.Column width={8}>
-                    <Header as='h1'>{movie.title}</Header>
-                    <Header as='h5'>{movie.description}</Header>
+                    <Header as='h1'>{title}</Header>
+                    <Header as='h5'>{description || 'No description'}</Header>
                     <Divider />
                     <Header as='h3'>Similar Movies</Header>
                     <Image.Group size='tiny'>
                         {
-                            movie.suggestions && movie.suggestions.map((suggestion) => {
-                                return (<Image src={suggestion.coverImageUrl} />)
+                            similarMovies.map((m: any) => {
+                                return (<Image src={m.posterUrl} />)
                             })
                         }
                     </Image.Group>
