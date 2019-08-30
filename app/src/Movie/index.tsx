@@ -2,6 +2,7 @@ import React from 'react'
 import { Divider, Image, Grid, Header } from 'semantic-ui-react'
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
+import { GetMovie, GetMovieVariables } from '../__generated__/GetMovie'
 
 type Props = {
     movieId: string
@@ -27,12 +28,14 @@ const GET_MOVIE = gql`
 const Movie: React.FC<Props> = (props) => {
     const { movieId } = props
 
-    const { loading, error, data } = useQuery(GET_MOVIE, { variables: { movieId } });
+    const variables = {
+        movieId
+    }
+    const { loading, error, data } = useQuery<GetMovie, GetMovieVariables>(GET_MOVIE, { variables });
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
-
-    console.log(data)
+    if (!data || !data.movie) return <p>Where is data?</p>
 
     const { movie: { title, posterUrl, description, similarMovies } } = data
 
