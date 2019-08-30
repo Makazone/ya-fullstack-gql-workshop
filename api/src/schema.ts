@@ -4,6 +4,7 @@ export default gql`
   type Movie {
     id: ID!
     title: String!
+    similarMovies(limit: Int! = 1): [Movie!]!
   }
 
   type User {

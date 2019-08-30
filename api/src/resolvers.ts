@@ -45,5 +45,23 @@ export default {
       }
       return null;
     }
+  },
+  Movie: {
+    similarMovies: async (
+      parent: any,
+      args: any,
+      _context: any,
+      _info: any
+    ): Promise<any> => {
+      const { id } = parent;
+      const { limit } = args;
+      const movies = await getRecommendations(id);
+
+      if (movies) {
+        return movies.slice(0, limit);
+      }
+
+      return [];
+    }
   }
 };
