@@ -14,5 +14,7 @@ import { getCurrentUser } from "./kinopoisk/userApi";
 // info - advanced stuff, query AST
 
 export default {
-  // TODO
+  Query: {
+    hello: () => "world"
+  }
 };
