@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Divider, Image, Grid, Header } from 'semantic-ui-react'
 import staticMovie from '../static-data'
 
@@ -6,10 +6,48 @@ type Props = {
     movieId: string
 }
 
+interface Movie {
+    title: string
+    description: string
+    posterUrl: string
+    similarMovies: Movie[]
+}
+
 const Movie: React.FC<Props> = (props) => {
     const { movieId } = props
 
-    const { posterUrl, title, description, similarMovies } = staticMovie
+    const [movie, setMovie] = useState<Movie | null>(null)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        async function loadMovie() {
+            const query = `query { movie(id: "${movieId}") { title posterUrl description similarMovies { posterUrl } } }`
+
+            setLoading(true)
+            const response = await fetch('http://localhost:4000/graphql', {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query }),
+            })
+
+            setLoading(false)
+            if (response && response.status === 200) {
+                const { data: { movie } } = await response.json()
+                console.log(movie)
+                setMovie(movie)
+            } else {
+                setError("Error :(")
+            }
+        }
+
+        loadMovie()
+    }, [])
+
+    if (loading) { return <p>loading...</p> }
+    if (error || !movie) { return <p>Error :(</p> }
+
+    const { posterUrl, title, description, similarMovies } = movie
 
     return (
         <Grid>
